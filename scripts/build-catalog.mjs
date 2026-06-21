@@ -116,8 +116,8 @@ for (const entry of entries) {
     description: m.description,
     settings: m.settings,
     ports: m.ports,
-    // Opt-in single sign-on. Carried through so the platform issues the app a
-    // per-app secret at install and honours its /api/auth/session calls.
+    // Opt-in OpenMasjidOS Fabric single sign-on. Carried through so the platform
+    // issues the app a per-app secret at install and honours its /api/auth/session calls.
     sso: m.sso === true ? true : undefined,
     compose: composeText,
   });

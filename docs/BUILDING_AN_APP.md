@@ -155,11 +155,12 @@ least-privilege, web port published, named volumes).
 
 ---
 
-## 7. Platform integration — appearance & single sign-on (optional)
+## 7. OpenMasjidOS Fabric — appearance & single sign-on (optional)
 
-Both are **optional and backwards-compatible** — your app must work standalone. The platform never
-sends masjid data; this is presentation + auth convenience only. The full normative contract lives in
-the platform repo's
+The **OpenMasjidOS Fabric** is the platform↔app integration layer — the unified appearance + single
+sign-on / API. Both halves are **optional and backwards-compatible** — your app must work standalone.
+The platform never sends masjid data; this is presentation + auth convenience only. The full normative
+contract lives in the platform repo's
 [`docs/APP_MANIFEST_SPEC.md`](https://github.com/hasan-ismail/OpenMasjidOS/blob/master/docs/APP_MANIFEST_SPEC.md).
 
 **Appearance (no opt-in needed).** When the dashboard opens your app it appends a URL fragment

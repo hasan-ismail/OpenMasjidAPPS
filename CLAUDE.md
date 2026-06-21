@@ -229,12 +229,14 @@ Each item in `settings` (from `SettingField` in the platform):
 
 ---
 
-## 7b. Single sign-on (optional)
+## 7b. OpenMasjidOS Fabric — single sign-on (optional)
 
-Set `sso: true` in `manifest.yaml` to opt an app into sharing the dashboard login. SSO is **optional,
-backwards-compatible, and identity-bound**: the app must work standalone, and the platform binds each
-session check to the calling app so the shared `omos_session` cookie can't let one installed app
-validate as another. On install of an `sso: true` app the platform injects into its container env:
+The **OpenMasjidOS Fabric** is the platform↔app integration layer (unified appearance + single
+sign-on / API). Set `sso: true` in `manifest.yaml` to opt an app into the Fabric's SSO — sharing the
+dashboard login. It is **optional, backwards-compatible, and identity-bound**: the app must work
+standalone, and the platform binds each session check to the calling app so the shared `omos_session`
+cookie can't let one installed app validate as another. On install of an `sso: true` app the platform
+injects into its container env:
 
 - `OPENMASJID_APP_ID` — the app id,
 - `OPENMASJID_BASE_URL` — the platform's address (set **only** by the platform),
