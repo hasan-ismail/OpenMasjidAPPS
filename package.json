@@ -1,0 +1,12 @@
+{
+  "name": "openmasjid-apps",
+  "private": true,
+  "type": "module",
+  "description": "The app catalog for OpenMasjidOS. `npm run build` regenerates catalog.json from apps/*.",
+  "scripts": {
+    "build": "node scripts/build-catalog.mjs"
+  },
+  "dependencies": {
+    "yaml": "^2.5.0"
+  }
+}

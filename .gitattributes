@@ -1,0 +1,9 @@
+# Shell scripts run inside Linux containers — they must stay LF on every
+# platform, or the shebang/line endings break the container entrypoint.
+*.sh text eol=lf
+
+# Keep these text formats LF too (served to / parsed by Linux tooling).
+*.yml text eol=lf
+*.yaml text eol=lf
+*.json text eol=lf
+*.svg text eol=lf
