@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="Prayer Times Display">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#16271f"/>
+      <stop offset="1" stop-color="#0e1814"/>
+    </linearGradient>
+    <linearGradient id="dome" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#2bbf90"/>
+      <stop offset="1" stop-color="#1fa37a"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#e6c768"/>
+      <stop offset="1" stop-color="#d4af37"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="512" height="512" rx="112" fill="url(#bg)"/>
+
+  <!-- faint geometric arches -->
+  <g stroke="#1fa37a" stroke-opacity="0.12" stroke-width="3" fill="none">
+    <path d="M96 416V300a160 160 0 0 1 320 0v116"/>
+    <path d="M160 416V312a96 96 0 0 1 192 0v104"/>
+  </g>
+
+  <!-- crescent finial -->
+  <g transform="translate(256 70)">
+    <path d="M0 0a30 30 0 1 0 22 50A38 38 0 1 1 0 0Z" fill="url(#gold)"/>
+  </g>
+  <rect x="251" y="118" width="10" height="26" rx="5" fill="url(#gold)"/>
+
+  <!-- central dome -->
+  <path d="M256 140c54 28 84 70 84 116v8H172v-8c0-46 30-88 84-116Z" fill="url(#dome)"/>
+  <!-- dome base band -->
+  <rect x="160" y="262" width="192" height="22" rx="8" fill="url(#gold)" opacity="0.85"/>
+
+  <!-- prayer hall body with mihrab arch -->
+  <path d="M168 296h176v140h-56v-58a32 32 0 0 0-64 0v58h-56V296Z" fill="url(#dome)" opacity="0.92"/>
+
+  <!-- minarets -->
+  <g fill="url(#dome)" opacity="0.85">
+    <path d="M108 436V300a18 18 0 0 1 36 0v136Z"/>
+    <circle cx="126" cy="292" r="14" fill="url(#gold)"/>
+    <path d="M368 436V300a18 18 0 0 1 36 0v136Z"/>
+    <circle cx="386" cy="292" r="14" fill="url(#gold)"/>
+  </g>
+
+  <!-- ground line -->
+  <rect x="92" y="432" width="328" height="14" rx="7" fill="#0e1814" opacity="0.5"/>
+</svg>

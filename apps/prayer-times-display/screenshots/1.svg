@@ -1,0 +1,101 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" font-family="ui-sans-serif, system-ui, 'Segoe UI', Roboto, sans-serif">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="-10%" r="120%">
+      <stop offset="0" stop-color="#16271f"/>
+      <stop offset="0.55" stop-color="#0e1814"/>
+    </radialGradient>
+    <linearGradient id="clock" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#eaf3ee"/>
+      <stop offset="1" stop-color="#c8ddd2"/>
+    </linearGradient>
+    <linearGradient id="card" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#1a2a24"/>
+      <stop offset="1" stop-color="#14211c"/>
+    </linearGradient>
+    <linearGradient id="active" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#20342c"/>
+      <stop offset="1" stop-color="#163025"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1600" height="900" fill="url(#bg)"/>
+
+  <!-- masthead -->
+  <g transform="translate(72 64)">
+    <circle cx="26" cy="22" r="26" fill="#1fa37a" opacity="0.18"/>
+    <path d="M26 6c8 5 12 11 12 18v2H14v-2c0-7 4-13 12-18Z" fill="#1fa37a"/>
+    <text x="70" y="34" fill="#eaf3ee" font-size="44" font-weight="600">Masjid Al-Noor</text>
+  </g>
+  <g transform="translate(1528 64)" text-anchor="end">
+    <text y="26" fill="#e6c768" font-size="30">15 Dhuʻl-Hijjah 1447</text>
+    <text y="60" fill="#9db5aa" font-size="22">Saturday, 20 June 2026</text>
+  </g>
+
+  <!-- clock -->
+  <g text-anchor="middle">
+    <text x="800" y="330" fill="url(#clock)" font-size="220" font-weight="600" letter-spacing="-2">1:24</text>
+    <text x="1058" y="330" fill="#9db5aa" font-size="64" font-weight="600">PM</text>
+  </g>
+
+  <!-- next prayer pill -->
+  <g transform="translate(800 392)" text-anchor="middle">
+    <rect x="-235" y="-34" width="470" height="68" rx="34" fill="#1a2a24" stroke="#ffffff" stroke-opacity="0.06"/>
+    <text x="-150" y="7" fill="#9db5aa" font-size="20" font-weight="600" letter-spacing="3">NEXT PRAYER</text>
+    <text x="40" y="8" fill="#e6c768" font-size="28" font-weight="700">Asr</text>
+    <text x="92" y="8" fill="#5f786d" font-size="28">·</text>
+    <text x="160" y="8" fill="#eaf3ee" font-size="28" font-weight="700">2h 38m</text>
+  </g>
+
+  <!-- prayer cards -->
+  <g transform="translate(72 560)">
+    <!-- columns at x = 0,250,500,750,1000,1250 width ~226 gap 24 across 1456 -->
+    <g>
+      <!-- Fajr -->
+      <g transform="translate(0 0)">
+        <rect width="226" height="230" rx="28" fill="url(#card)" stroke="#ffffff" stroke-opacity="0.06"/>
+        <text x="113" y="70" text-anchor="middle" fill="#9db5aa" font-size="26">Fajr</text>
+        <text x="113" y="140" text-anchor="middle" fill="#eaf3ee" font-size="52" font-weight="600">4:18</text>
+        <text x="113" y="172" text-anchor="middle" fill="#9db5aa" font-size="22">AM</text>
+      </g>
+      <!-- Sunrise (minor) -->
+      <g transform="translate(250 0)" opacity="0.72">
+        <rect width="226" height="230" rx="28" fill="url(#card)" stroke="#ffffff" stroke-opacity="0.06"/>
+        <text x="113" y="70" text-anchor="middle" fill="#9db5aa" font-size="26">Sunrise</text>
+        <text x="113" y="140" text-anchor="middle" fill="#eaf3ee" font-size="52" font-weight="600">5:51</text>
+        <text x="113" y="172" text-anchor="middle" fill="#9db5aa" font-size="22">AM</text>
+      </g>
+      <!-- Dhuhr (active) -->
+      <g transform="translate(500 -8)">
+        <rect width="226" height="238" rx="28" fill="url(#active)" stroke="#1fa37a" stroke-opacity="0.55"/>
+        <rect x="40" width="146" height="4" rx="2" fill="#1fa37a"/>
+        <text x="113" y="74" text-anchor="middle" fill="#2bbf90" font-size="26">Dhuhr</text>
+        <text x="113" y="146" text-anchor="middle" fill="#eaf3ee" font-size="52" font-weight="600">1:06</text>
+        <text x="113" y="178" text-anchor="middle" fill="#9db5aa" font-size="22">PM</text>
+      </g>
+      <!-- Asr (next) -->
+      <g transform="translate(750 0)">
+        <rect width="226" height="230" rx="28" fill="url(#card)" stroke="#ffffff" stroke-opacity="0.06"/>
+        <text x="113" y="70" text-anchor="middle" fill="#e6c768" font-size="26">Asr</text>
+        <text x="113" y="140" text-anchor="middle" fill="#eaf3ee" font-size="52" font-weight="600">4:02</text>
+        <text x="113" y="172" text-anchor="middle" fill="#9db5aa" font-size="22">PM</text>
+        <circle cx="113" cy="206" r="5" fill="#d4af37"/>
+      </g>
+      <!-- Maghrib -->
+      <g transform="translate(1000 0)">
+        <rect width="226" height="230" rx="28" fill="url(#card)" stroke="#ffffff" stroke-opacity="0.06"/>
+        <text x="113" y="70" text-anchor="middle" fill="#9db5aa" font-size="26">Maghrib</text>
+        <text x="113" y="140" text-anchor="middle" fill="#eaf3ee" font-size="52" font-weight="600">8:29</text>
+        <text x="113" y="172" text-anchor="middle" fill="#9db5aa" font-size="22">PM</text>
+      </g>
+      <!-- Isha -->
+      <g transform="translate(1250 0)">
+        <rect width="226" height="230" rx="28" fill="url(#card)" stroke="#ffffff" stroke-opacity="0.06"/>
+        <text x="113" y="70" text-anchor="middle" fill="#9db5aa" font-size="26">Isha</text>
+        <text x="113" y="140" text-anchor="middle" fill="#eaf3ee" font-size="52" font-weight="600">10:02</text>
+        <text x="113" y="172" text-anchor="middle" fill="#9db5aa" font-size="22">PM</text>
+      </g>
+    </g>
+  </g>
+
+  <text x="800" y="858" text-anchor="middle" fill="#5f786d" font-size="22">Muslim World League · Asr: Standard</text>
+</svg>

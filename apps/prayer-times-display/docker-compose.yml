@@ -1,0 +1,18 @@
+services:
+  app:
+    image: ghcr.io/hasan-ismail/openmasjid-prayer-times-display:1.0.0
+    restart: unless-stopped
+    environment:
+      MASJID_NAME: ${MASJID_NAME}
+      LATITUDE: ${LATITUDE}
+      LONGITUDE: ${LONGITUDE}
+      CALC_METHOD: ${CALC_METHOD}
+      ASR_MADHAB: ${ASR_MADHAB}
+      TIMEZONE: ${TIMEZONE}
+      TIME_FORMAT: ${TIME_FORMAT}
+      SCREEN_ORIENTATION: ${SCREEN_ORIENTATION}
+      LANGUAGE: ${LANGUAGE}
+    ports:
+      # host:container — the platform offers "Open" on the published host port and
+      # will pick a different free host port automatically if 8731 is taken.
+      - "8731:80"

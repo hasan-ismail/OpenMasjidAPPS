@@ -1,0 +1,73 @@
+id: prayer-times-display
+name: Prayer Times Display
+tagline: A calm, full-screen prayer clock for your masjid's screens
+category: displays
+version: 1.0.0
+author: OpenMasjidAPPS
+license: MIT
+icon: icon.svg
+screenshots:
+  - screenshots/1.svg
+description: |
+  A beautiful, full-screen prayer-times display made for the TVs and monitors in
+  your masjid. It shows a large live clock, today's Hijri and Gregorian dates, the
+  five daily prayers plus sunrise, and a countdown to the next prayer — with the
+  current prayer gently highlighted.
+
+  Prayer times are calculated on the device itself from the location and method you
+  choose below, so the display keeps working even without an internet connection.
+  It supports the common calculation methods and both the Standard and Hanafi
+  opinions for Asr.
+
+  **After installing:** open the app and put the screen into full-screen (most TVs
+  and browsers do this with the F11 key or a kiosk setting). To change any value
+  later, update the app's settings in OpenMasjidOS and restart it.
+
+  Tip: you can find your masjid's latitude and longitude by searching its name on
+  any maps website and copying the two numbers (for example `40.7128` and
+  `-74.0060`).
+settings:
+  - key: MASJID_NAME
+    label: Masjid name
+    type: text
+    default: Our Masjid
+  - key: LATITUDE
+    label: Latitude (e.g. 40.7128)
+    type: text
+    default: ""
+  - key: LONGITUDE
+    label: Longitude (e.g. -74.0060)
+    type: text
+    default: ""
+  - key: CALC_METHOD
+    label: Prayer calculation method
+    type: select
+    options: [MWL, ISNA, Egypt, Makkah, Karachi, Tehran, Jafari]
+    default: MWL
+  - key: ASR_MADHAB
+    label: Asr time (Standard = Shafi'i/Maliki/Hanbali, Hanafi = later)
+    type: select
+    options: [Standard, Hanafi]
+    default: Standard
+  - key: TIMEZONE
+    label: Time zone (e.g. America/New_York — leave blank to use this screen's zone)
+    type: text
+    default: ""
+  - key: TIME_FORMAT
+    label: Clock format
+    type: select
+    options: [12h, 24h]
+    default: 12h
+  - key: SCREEN_ORIENTATION
+    label: Screen orientation
+    type: select
+    options: [landscape, portrait]
+    default: landscape
+  - key: LANGUAGE
+    label: Language for dates
+    type: select
+    options: [en, ar, ur]
+    default: en
+ports:
+  - container: 80
+    label: Web interface
