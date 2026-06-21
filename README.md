@@ -1,34 +1,58 @@
 # OpenMasjidAPPS
 
-The app catalog for [**OpenMasjidOS**](https://github.com/hasan-ismail/OpenMasjidOS) — a free,
-self-hosted, masjid-themed platform for running Docker apps. This repo holds the apps; the
-platform fetches one file from here (`catalog.json`) to populate its App Store.
+The **app catalog** for [**OpenMasjidOS**](https://github.com/hasan-ismail/OpenMasjidOS) — a free,
+self-hosted, masjid-themed platform for running Docker apps.
 
-> Building an app? Read **[CLAUDE.md](./CLAUDE.md)** — it's the authoritative contract.
+This repo is a **catalog only**. It does **not** hold app source code. Each app lives in its **own
+repository**; this repo keeps a [`registry.yaml`](./registry.yaml) of those repos and generates the
+single [`catalog.json`](./catalog.json) the platform fetches to populate its App Store.
+
+> Building an app? Read **[docs/BUILDING_AN_APP.md](./docs/BUILDING_AN_APP.md)** (hands-on) and
+> **[CLAUDE.md](./CLAUDE.md)** (the authoritative contract).
 
 ## How it works
 
-- Each app is a folder under `apps/<app-id>/` containing a `manifest.yaml`, a
-  `docker-compose.yml`, an icon, and optional screenshots.
-- `catalog.json` (repo root) is **generated** from those folders and is the only file the
-  platform reads, from:
+```
+app repos (one per app) ──listed in──▶ registry.yaml ──build──▶ catalog.json ──fetched by──▶ OpenMasjidOS
+```
+
+- Each app is its **own public repo** with a `manifest.yaml`, a `docker-compose.yml`, an icon, and a
+  publicly-published Docker image.
+- `registry.yaml` lists those repos. `scripts/build-catalog.mjs` fetches each one and assembles
+  `catalog.json` (repo root) — the **only** file the platform reads, from:
   `https://raw.githubusercontent.com/hasan-ismail/OpenMasjidAPPS/main/catalog.json`
-- The platform installs an app by running its compose as `docker compose -p omos-<id> up -d`,
+- The platform installs an app by running its `compose` as `docker compose -p omos-<id> up -d`,
   injecting the user's answers to the app's `settings` as environment variables.
 
 ## Adding an app
 
-1. Create `apps/<app-id>/` (folder name = the app `id`, kebab-case).
-2. Add `manifest.yaml`, `docker-compose.yml`, `icon.svg`, and `screenshots/`.
-3. Regenerate the catalog:
+1. Build your app in its **own repo** — see [docs/BUILDING_AN_APP.md](./docs/BUILDING_AN_APP.md).
+   (Fastest start: copy a folder from [`examples/`](./examples/) into a new repo and adapt it.)
+2. Add an entry to [`registry.yaml`](./registry.yaml):
+   ```yaml
+   apps:
+     - id: my-app
+       repo: <owner>/openmasjid-my-app
+       ref: v1.0.0
+   ```
+3. Regenerate the catalog (optional locally — CI does it on push):
    ```
    npm install
    npm run build
    ```
-4. Commit. (CI also rebuilds `catalog.json` automatically on push to `main`.)
+4. Open a PR. CI rebuilds and commits `catalog.json` automatically.
+
+## `examples/`
+
+Complete, working **reference apps** (`prayer-times-display`, `announcements-board`) you copy into a
+new repo to start. They are templates/documentation — they are **not** part of the catalog (the
+registry is).
 
 ## Licensing
 
-The platform is AGPL-3.0, but apps run at arm's length as separate containers, so **each app
-keeps its own license** (the `license` field in its manifest). Do not copy app definitions or
-assets from umbrelOS or CasaOS — author them fresh. See [CLAUDE.md §10](./CLAUDE.md).
+This repository — the catalog tooling, registry, and example scaffolding — is licensed
+**AGPL-3.0**, the same as the platform (see [LICENSE](./LICENSE)).
+
+**Each app keeps its own license**, declared in its `manifest.yaml` `license` field. Apps run at
+arm's length as separate containers, so they are not bound by this repo's license. Do not copy app
+definitions or assets from umbrelOS or CasaOS — author them fresh. See [CLAUDE.md §10](./CLAUDE.md).
