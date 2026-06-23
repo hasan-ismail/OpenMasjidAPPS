@@ -36,11 +36,11 @@ apps:
 coming_soon:
   - id: kiosk
     name: OpenMasjid Kiosk
-    tagline: A donation kiosk for an Android tablet — collect card donations via Stripe. Just a donation panel, nothing else.
+    tagline: An Android-tablet donation kiosk — take in-person card donations with a Stripe M2 card reader.
     category: donations
   - id: donations
     name: OpenMasjid Donations
-    tagline: A simple, provider-agnostic donation page — collect and track giving.
+    tagline: An online donation page — supporters give by entering their card details; collect and track giving.
     category: donations
   - id: student-manager
     name: OpenMasjid Student Manager
