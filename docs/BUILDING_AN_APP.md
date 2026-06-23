@@ -106,6 +106,12 @@ services:
     environment:
       MASJID_NAME: ${MASJID_NAME}
       SOME_CHOICE: ${SOME_CHOICE}
+      # OpenMasjidOS Fabric — uncomment if your manifest sets sso/notifications.
+      # These are delivered for ${VAR} substitution, so you MUST reference them
+      # here or the platform's injected values never reach the container (see §7).
+      # OPENMASJID_BASE_URL: ${OPENMASJID_BASE_URL:-}
+      # OPENMASJID_APP_ID: ${OPENMASJID_APP_ID:-}
+      # OPENMASJID_APP_SECRET: ${OPENMASJID_APP_SECRET:-}   # sso/notifications only
     ports:
       - "8080:80"          # host:container — pick a free default ≥ 1024; platform remaps conflicts
     volumes:
@@ -159,7 +165,7 @@ least-privilege, web port published, named volumes).
 
 ---
 
-## 7. OpenMasjidOS Fabric — appearance & single sign-on (optional)
+## 7. OpenMasjidOS Fabric — appearance, single sign-on & notifications (optional)
 
 The **OpenMasjidOS Fabric** is the platform↔app integration layer — the unified appearance + single
 sign-on / API. Both halves are **optional and backwards-compatible** — your app must work standalone.
@@ -175,12 +181,31 @@ The `#omos=` fragment is **attacker-craftable** — treat it as untrusted presen
 identity, and sanitize any URL you read (require `http(s)` on `wallpaperImage`).
 
 **Single sign-on — opt in with `sso: true`.** Add `sso: true` to your `manifest.yaml`. At install the
-platform then injects into your container's env:
+platform makes these available to your app — **the same way as `settings`** (see *Wire it into your
+compose* immediately below):
 
 - `OPENMASJID_APP_ID` — your app id,
 - `OPENMASJID_BASE_URL` — the platform's address (set **only** by the platform — never let anything
   else set it; it's where you forward the user's cookie),
 - `OPENMASJID_APP_SECRET` — a per-app secret. **Treat it as a credential — never log or expose it.**
+
+> **Wire it into your compose (required).** "Made available" does **not** mean "set on your container
+> automatically." The platform delivers these by writing your app's `.env` and running
+> `docker compose --env-file …`, which only powers **`${VAR}` substitution** — exactly like `settings`.
+> So they reach your container **only if your compose references them**:
+>
+> ```yaml
+> services:
+>   app:
+>     environment:
+>       OPENMASJID_BASE_URL: ${OPENMASJID_BASE_URL:-}
+>       OPENMASJID_APP_ID: ${OPENMASJID_APP_ID:-}
+>       OPENMASJID_APP_SECRET: ${OPENMASJID_APP_SECRET:-}   # only for sso/notifications apps
+> ```
+>
+> The `:-` empty default keeps a standalone `docker compose up` quiet. **Without these lines the
+> injected values never reach your app and SSO/notifications silently no-op** (this is the exact trap
+> that left OpenMasjid Display non-functional for several releases).
 
 To check whether the current visitor is the signed-in OpenMasjidOS admin, your **backend**
 (server→server, never from the browser) calls:
@@ -223,6 +248,10 @@ POST ${OPENMASJID_BASE_URL}/api/fabric/notify
 rate-limited per app and **fails soft** (`delivered:false` when the admin hasn't enabled
 notifications), so treat it as best-effort and never depend on it — your app must work without it.
 
+> **Same compose requirement as SSO:** notifications also need `OPENMASJID_BASE_URL` and
+> `OPENMASJID_APP_SECRET`, so your compose `environment:` must reference them — see *Wire it into your
+> compose* above. If it doesn't, `/api/fabric/notify` calls never authenticate and silently no-op.
+
 ---
 
 ## 8. Get listed in the catalog
@@ -255,6 +284,9 @@ store.
       `prefers-reduced-motion`; works LTR and RTL.
 - [ ] Installs and **opens cleanly on a real OpenMasjidOS instance** with only the settings
       collected at install time.
+- [ ] If using `sso`/`notifications`: your compose `environment:` **references** `${OPENMASJID_BASE_URL}`,
+      `${OPENMASJID_APP_ID}` and `${OPENMASJID_APP_SECRET}` — otherwise the injected values never reach
+      the container and SSO/notify silently do nothing.
 - [ ] If using SSO (`sso: true`): backend sends `X-OpenMasjid-App-Secret`, reads the cookie only from
       the request, fails closed, and falls back to the app's own login when the platform is absent.
 - [ ] No copied Umbrel/CasaOS definitions or assets; no sacred text in decorative chrome.
