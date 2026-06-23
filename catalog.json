@@ -32,6 +32,27 @@
       "sso": true,
       "notifications": true,
       "compose": "# OpenMasjid Display — one container that runs everything:\n#   • the control panel (web UI + API),\n#   • the timetable video renderer, and\n#   • the RTSP server (MediaMTX) every screen's decoder connects to.\n# Bundling them keeps it simple: one image to install, one to update. It stays\n# least-privilege: no privileged mode, host networking, devices or sockets.\n#\n# Nothing to configure at install time: install it, open the control panel,\n# create your password, and set everything up inside the app (saved to /data).\n# Screens find this server automatically from the address you open the panel with.\nservices:\n  app:\n    image: ghcr.io/hasan-ismail/openmasjiddisplay:0.20.5\n    restart: unless-stopped\n    environment:\n      PORT: \"8080\"\n      VOLUNTEER_PORT: \"8081\"\n      VOLUNTEER_PUBLIC_PORT: \"7861\"\n      DATA_DIR: /data\n      # OpenMasjidOS Fabric: the platform writes these into the app's .env and runs\n      # compose with --env-file, which only feeds ${VAR} SUBSTITUTION — so we must\n      # reference them here for them to actually reach the container (appearance/SSO +\n      # notifications). Empty defaults keep a standalone `docker compose up` quiet.\n      OPENMASJID_BASE_URL: ${OPENMASJID_BASE_URL:-}\n      OPENMASJID_APP_ID: ${OPENMASJID_APP_ID:-}\n      OPENMASJID_APP_SECRET: ${OPENMASJID_APP_SECRET:-}\n    ports:\n      # host:container. OpenMasjidOS offers \"Open\" on the LOWEST published port,\n      # so the control panel (7860) must stay below the RTSP port (8554). The\n      # platform picks a different free host port automatically if one is taken.\n      - \"7860:8080\"\n      # The simple mobile volunteer page (off by default; turn it on in Settings).\n      - \"7861:8081\"\n      # RTSP video — each screen's decoder connects here (TCP).\n      - \"8554:8554\"\n    volumes:\n      - data:/data\n\nvolumes:\n  data:\n"
+    },
+    {
+      "id": "donations",
+      "name": "OpenMasjid Donations",
+      "tagline": "A simple, provider-agnostic donation page — collect and track giving.",
+      "category": "donations",
+      "comingSoon": true
+    },
+    {
+      "id": "kiosk",
+      "name": "OpenMasjid Kiosk",
+      "tagline": "An interactive lobby kiosk — prayer times, announcements and info on a touchscreen.",
+      "category": "displays",
+      "comingSoon": true
+    },
+    {
+      "id": "student-manager",
+      "name": "OpenMasjid Student Manager",
+      "tagline": "Run your madrasah — students, classes, attendance and progress.",
+      "category": "admin",
+      "comingSoon": true
     }
   ]
 }
