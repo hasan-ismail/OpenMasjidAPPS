@@ -1,6 +1,6 @@
 # OpenMasjidAPPS
 
-The **app catalog** for [**OpenMasjidOS**](https://github.com/hasan-ismail/OpenMasjidOS) — a free,
+The **app catalog** for [**OpenMasjidOS**](https://github.com/OpenMasjid-Solutions/OpenMasjidOS) — a free,
 self-hosted, masjid-themed platform for running Docker apps.
 
 This repo is a **catalog only**. It does **not** hold app source code. Each app lives in its **own
@@ -21,7 +21,7 @@ app repos (one per app) ──listed in──▶ registry.yaml ──build──
   publicly-published Docker image.
 - `registry.yaml` lists those repos. `scripts/build-catalog.mjs` fetches each one and assembles
   `catalog.json` (repo root) — the **only** file the platform reads, from:
-  `https://raw.githubusercontent.com/hasan-ismail/OpenMasjidAPPS/main/catalog.json`
+  `https://raw.githubusercontent.com/OpenMasjid-Solutions/OpenMasjidAPPS/main/catalog.json`
 - The platform installs an app by running its `compose` as `docker compose -p omos-<id> up -d`,
   injecting the user's answers to the app's `settings` as environment variables.
 

@@ -5,7 +5,7 @@ FROM nginx:1.27-alpine
 
 LABEL org.opencontainers.image.title="OpenMasjid Prayer Times Display" \
       org.opencontainers.image.description="A calm full-screen prayer-times display for masjid screens." \
-      org.opencontainers.image.source="https://github.com/hasan-ismail/OpenMasjidAPPS" \
+      org.opencontainers.image.source="https://github.com/OpenMasjid-Solutions/OpenMasjidAPPS" \
       org.opencontainers.image.licenses="MIT"
 
 # Static assets.

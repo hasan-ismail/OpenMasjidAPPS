@@ -1,6 +1,6 @@
 services:
   app:
-    image: ghcr.io/hasan-ismail/openmasjid-prayer-times-display:1.0.0
+    image: ghcr.io/openmasjid-solutions/openmasjid-prayer-times-display:1.0.0
     restart: unless-stopped
     environment:
       MASJID_NAME: ${MASJID_NAME}

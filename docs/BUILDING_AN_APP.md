@@ -114,7 +114,7 @@ auto-published `catalog.json`. These rules keep that supply chain safe. The cata
    card entry then happens on stripe.com — but the in-person reader still requires `https: true`.)
 
 See also the SSO/notifications contract in [§7](#7-openmasjidos-fabric--appearance-single-sign-on--notifications-optional)
-and the platform's [`docs/APP_MANIFEST_SPEC.md`](https://github.com/hasan-ismail/OpenMasjidOS/blob/master/docs/APP_MANIFEST_SPEC.md).
+and the platform's [`docs/APP_MANIFEST_SPEC.md`](https://github.com/OpenMasjid-Solutions/OpenMasjidOS/blob/master/docs/APP_MANIFEST_SPEC.md).
 
 ---
 
@@ -233,7 +233,7 @@ The **OpenMasjidOS Fabric** is the platform↔app integration layer — the unif
 sign-on / API. Both halves are **optional and backwards-compatible** — your app must work standalone.
 The platform never sends masjid data; this is presentation + auth convenience only. The full normative
 contract lives in the platform repo's
-[`docs/APP_MANIFEST_SPEC.md`](https://github.com/hasan-ismail/OpenMasjidOS/blob/master/docs/APP_MANIFEST_SPEC.md).
+[`docs/APP_MANIFEST_SPEC.md`](https://github.com/OpenMasjid-Solutions/OpenMasjidOS/blob/master/docs/APP_MANIFEST_SPEC.md).
 
 **Appearance (no opt-in needed).** When the dashboard opens your app it appends a URL fragment
 `#omos=<base64url JSON>` carrying `{ v, theme, wallpaper, wallpaperImage?, accent, lang }`

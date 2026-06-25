@@ -13,8 +13,8 @@
 that aggregates them into a single `catalog.json` that **OpenMasjidOS** (the platform) fetches to
 populate its App Store.
 
-- **Platform repo (the engine):** https://github.com/hasan-ismail/OpenMasjidOS
-- **This repo (the catalog):** https://github.com/hasan-ismail/OpenMasjidAPPS
+- **Platform repo (the engine):** https://github.com/OpenMasjid-Solutions/OpenMasjidOS
+- **This repo (the catalog):** https://github.com/OpenMasjid-Solutions/OpenMasjidAPPS
 - **App repos (the apps):** one repository per app, owned by whoever builds the app.
 
 ```
@@ -54,7 +54,7 @@ OpenMasjidOS repo.**
 
 1. **The file & URL.** The platform fetches, by default (from OpenMasjidOS `packages/core/src/config.ts`):
    ```
-   https://raw.githubusercontent.com/hasan-ismail/OpenMasjidAPPS/main/catalog.json
+   https://raw.githubusercontent.com/OpenMasjid-Solutions/OpenMasjidAPPS/main/catalog.json
    ```
    Keep `catalog.json` at the repo **root** on **`main`**. (Operators can override with
    `OPENMASJID_CATALOG_URL`, but this default is the contract.)
@@ -108,7 +108,7 @@ The build script (§5) preserves all of this — it just sources each entry from
 ```yaml
 apps:
   - id: prayer-times-display                       # kebab-case; must equal the app's manifest id
-    repo: hasan-ismail/openmasjid-prayer-times-display
+    repo: OpenMasjid-Solutions/openmasjid-prayer-times-display
     ref: v1.0.0                                    # a git TAG (recommended) or branch to pin to
     path: ""                                       # OPTIONAL — set if manifest.yaml isn't at repo root
 ```
@@ -389,4 +389,4 @@ npm install && npm run build   # regenerate catalog.json from registry.yaml (nee
 - Keep `id` == app's manifest id == registry id, kebab-case, matching `^[a-z0-9][a-z0-9-]{0,79}$`.
 - Never copy Umbrel/CasaOS definitions or assets (§10). Author fresh.
 - If a task seems to require changing how the *platform* installs/serves apps, that belongs in the
-  OpenMasjidOS repo (https://github.com/hasan-ismail/OpenMasjidOS) — stop and flag it.
+  OpenMasjidOS repo (https://github.com/OpenMasjid-Solutions/OpenMasjidOS) — stop and flag it.

@@ -6,10 +6,10 @@
 > modern, never gaudy.
 >
 > **Source of truth:** the platform repo's
-> [`packages/ui/src/styles/tokens.css`](https://github.com/hasan-ismail/OpenMasjidOS/blob/master/packages/ui/src/styles/tokens.css),
-> [`glass.css`](https://github.com/hasan-ismail/OpenMasjidOS/blob/master/packages/ui/src/styles/glass.css),
-> [`app.css`](https://github.com/hasan-ismail/OpenMasjidOS/blob/master/packages/ui/src/styles/app.css),
-> and [`lib/motion.ts`](https://github.com/hasan-ismail/OpenMasjidOS/blob/master/packages/ui/src/lib/motion.ts).
+> [`packages/ui/src/styles/tokens.css`](https://github.com/OpenMasjid-Solutions/OpenMasjidOS/blob/master/packages/ui/src/styles/tokens.css),
+> [`glass.css`](https://github.com/OpenMasjid-Solutions/OpenMasjidOS/blob/master/packages/ui/src/styles/glass.css),
+> [`app.css`](https://github.com/OpenMasjid-Solutions/OpenMasjidOS/blob/master/packages/ui/src/styles/app.css),
+> and [`lib/motion.ts`](https://github.com/OpenMasjid-Solutions/OpenMasjidOS/blob/master/packages/ui/src/lib/motion.ts).
 > This doc mirrors them — if they change there, update here. Apps are **separate containers in any
 > stack**, so everything below is plain CSS/values you can drop into a static site or any framework.
 

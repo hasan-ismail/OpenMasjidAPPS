@@ -5,7 +5,7 @@
 > catalog's [`registry.yaml`](../../registry.yaml). See [docs/BUILDING_AN_APP.md](../../docs/BUILDING_AN_APP.md).
 
 A clean, full-screen rotating notice board for the screens in your masjid, for use with
-[OpenMasjidOS](https://github.com/hasan-ismail/OpenMasjidOS).
+[OpenMasjidOS](https://github.com/OpenMasjid-Solutions/OpenMasjidOS).
 
 It cycles through the announcements you enter — Jummah timings, classes, fundraisers,
 reminders — with a live clock, the date, and an optional footer note.
@@ -31,5 +31,5 @@ Open `src/index.html` in a browser; it uses the development defaults in `src/con
 
 ## Image
 
-Published by CI to `ghcr.io/hasan-ismail/openmasjid-announcements-board` and pinned by tag in
+Published by CI to `ghcr.io/openmasjid-solutions/openmasjid-announcements-board` and pinned by tag in
 `docker-compose.yml`.

@@ -30,19 +30,19 @@
 
 apps:
   - id: display
-    repo: hasan-ismail/OpenMasjidDisplay
+    repo: OpenMasjid-Solutions/OpenMasjidDisplay
     ref: v0.20.7                                 # human-readable tag; commit (below) is the immutable pin
     commit: e38b8f76faf6fbcbdb6497ed53aa3327ac90b2f2
   - id: donations
-    repo: hasan-ismail/OpenMasjidDonations
+    repo: OpenMasjid-Solutions/OpenMasjidDonations
     ref: v0.10.0                                 # release line; commit (below) is the immutable pin (adds the @sha256 image digest)
     commit: 4c1f73cb4ac3679b3e6a1d3a281d0c3ea91ba6ed
   # Example (uncomment and adapt once the app repo exists):
   # - id: prayer-times-display
-  #   repo: hasan-ismail/openmasjid-prayer-times-display
+  #   repo: OpenMasjid-Solutions/openmasjid-prayer-times-display
   #   ref: v1.0.0
   # - id: announcements-board
-  #   repo: hasan-ismail/openmasjid-announcements-board
+  #   repo: OpenMasjid-Solutions/openmasjid-announcements-board
   #   ref: v1.0.0
 
 # Coming-soon teasers — apps that aren't released yet (no repo/image). They show

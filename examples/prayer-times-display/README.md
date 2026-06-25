@@ -5,7 +5,7 @@
 > catalog's [`registry.yaml`](../../registry.yaml). See [docs/BUILDING_AN_APP.md](../../docs/BUILDING_AN_APP.md).
 
 A calm, full-screen prayer-times display for the screens in your masjid, for use with
-[OpenMasjidOS](https://github.com/hasan-ismail/OpenMasjidOS).
+[OpenMasjidOS](https://github.com/OpenMasjid-Solutions/OpenMasjidOS).
 
 It shows a large live clock, the Hijri and Gregorian dates, the five daily prayers plus
 sunrise, and a countdown to the next prayer — with the current prayer gently highlighted.
@@ -44,5 +44,5 @@ Open `src/index.html` in a browser; it uses the development defaults in `src/con
 
 ## Image
 
-Published by CI to `ghcr.io/hasan-ismail/openmasjid-prayer-times-display` and pinned by tag in
+Published by CI to `ghcr.io/openmasjid-solutions/openmasjid-prayer-times-display` and pinned by tag in
 `docker-compose.yml`.

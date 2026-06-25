@@ -5,7 +5,7 @@ FROM nginx:1.27-alpine
 
 LABEL org.opencontainers.image.title="OpenMasjid Announcements Board" \
       org.opencontainers.image.description="A full-screen rotating announcements board for masjid screens." \
-      org.opencontainers.image.source="https://github.com/hasan-ismail/OpenMasjidAPPS" \
+      org.opencontainers.image.source="https://github.com/OpenMasjid-Solutions/OpenMasjidAPPS" \
       org.opencontainers.image.licenses="MIT"
 
 COPY src/ /usr/share/nginx/html/
