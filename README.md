@@ -1,4 +1,26 @@
-# OpenMasjidAPPS
+<h1 align="center"><b>OpenMasjidAPPS</b></h1>
+
+<p align="center">
+  <a href="#how-it-works">How it works</a> |
+  <a href="#adding-an-app">Adding an app</a> |
+  <a href="#licensing">License</a>
+</p>
+
+<div align="center">
+  <a href="https://github.com/OpenMasjid-Solutions/OpenMasjidAPPS/releases">
+    <img src="https://img.shields.io/github/v/release/OpenMasjid-Solutions/OpenMasjidAPPS?style=flat-square&color=blue" alt="Latest Release" />
+  </a>
+  <a href="https://github.com/OpenMasjid-Solutions/OpenMasjidAPPS">
+    <img src="https://img.shields.io/github/stars/OpenMasjid-Solutions/OpenMasjidAPPS?style=flat-square&color=blue" alt="Stars" />
+  </a>
+  <a href="https://discord.gg/MpPDbyQfaF">
+    <img src="https://img.shields.io/badge/Discord-Join-blue?style=flat-square&logo=discord" alt="Discord" />
+  </a>
+</div>
+
+<h5 align="center">
+Leave a star if you like the project! ⭐️
+</h5>
 
 The **app catalog** for [**OpenMasjidOS**](https://github.com/OpenMasjid-Solutions/OpenMasjidOS) — a free,
 self-hosted, masjid-themed platform for running Docker apps.
