@@ -31,12 +31,12 @@
 apps:
   - id: display
     repo: OpenMasjid-Solutions/OpenMasjidDisplay
-    ref: v0.20.7                                 # human-readable tag; commit (below) is the immutable pin
-    commit: e38b8f76faf6fbcbdb6497ed53aa3327ac90b2f2
+    ref: v0.20.8                                 # human-readable tag; commit (below) is the immutable pin
+    commit: 88984088b594c2d74343336cbccb8550064440b8
   - id: donations
     repo: OpenMasjid-Solutions/OpenMasjidDonations
     ref: v0.10.0                                 # release line; commit (below) is the immutable pin (adds the @sha256 image digest)
-    commit: 4c1f73cb4ac3679b3e6a1d3a281d0c3ea91ba6ed
+    commit: 0c861622ad7847984c9ab79da5b3dc17c1234888
   # Example (uncomment and adapt once the app repo exists):
   # - id: prayer-times-display
   #   repo: OpenMasjid-Solutions/openmasjid-prayer-times-display
