@@ -397,13 +397,15 @@ GET ${OPENMASJID_BASE_URL}/api/fabric/site
 `enabled` is false, derive URLs from the incoming request host as you do today. **Never hard-code the
 domain or persist `publicUrl`** — it changes when the admin changes their tunnel/domain.
 
-**How routing works (path-based, one subdomain).** The OS keeps every app on a single public
-hostname — **`omos.<the-admin's-domain>`** — and gives each app a **path** (admin-configurable in
-**Settings → Remote access**; defaults to the app id, e.g. donations → `donate`). The admin adds one
-Cloudflare *Public Hostname* per app (subdomain `omos`, that path, Service **HTTP**
-`localhost:<the app's published port>`); the OS shows the exact rows to copy. So your app is reached at
-`https://omos.example.org/<path>/…`. **Don't assume the path equals your id — always read it from
-`basePath`** (it's whatever the admin chose).
+**How routing works (path-based, one subdomain, one Cloudflare route).** The OS keeps every app on a
+single public hostname — **`omos.<the-admin's-domain>`** — and gives each app a **path**
+(admin-configurable in **Settings → Remote access**; defaults to the app id, e.g. donations →
+`donate`). The admin adds **ONE** Cloudflare *Public Hostname* (`omos.<domain>` → HTTP
+`localhost:<the OS front-door port>`); **the OS itself reverse-proxies each path to the right app**
+(platform v0.37.0+) — no per-app Cloudflare rows. So your app is reached at
+`https://omos.example.org/<path>/…`. Cloudflare terminates TLS and the OS forwards the **full path**
+(it does not strip the prefix), so you remain base-path aware. **Don't assume the path equals your id —
+always read it from `basePath`** (`/api/fabric/site`); it's whatever the admin chose.
 
 **Therefore a `domain` app MUST be base-path aware.** Cloudflare forwards the full path (it does *not*
 strip the prefix), so your server receives requests under `basePath` (e.g. `/donations/...`). Mount
