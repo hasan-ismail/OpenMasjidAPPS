@@ -329,7 +329,13 @@ Exactly one of: `displays`, `donations`, `community`, `quran`, `admin`, `utiliti
   and contributions to it are governed by a **Contributor License Agreement** (`CLA.md`, enforced by
   `.github/workflows/cla.yml`): AGPL-3.0 inbound plus a grant letting OpenMasjid-Solutions also offer
   commercial/dual licenses. The public tree stays AGPL-3.0; contributors keep their copyright. See
-  `CONTRIBUTING.md`.
+  `CONTRIBUTING.md`. **Hard rule for all future code in this repo:** every new file starts with the
+  SPDX header in its comment syntax — `// SPDX-License-Identifier: AGPL-3.0-only` (js/mjs/ts),
+  `# …` (yml/yaml/sh/Dockerfile), `<!-- … -->` (md/html) — plus `Copyright (C) 2026
+  OpenMasjid-Solutions`; never strip a header or add AGPL-incompatible code.
+- **Apps the OpenMasjid team / its agents build** should be **AGPL-3.0 + the same CLA** — see
+  [`docs/APP_LICENSING.md`](docs/APP_LICENSING.md). (Third-party/community apps merely *listed* in
+  the registry are exempt — they keep their own license; see below.)
 - **The CLA covers this repo only.** **Each app** carries **its own license** (the manifest
   `license` field). Because apps run as separate programs at arm's length (network, env vars), the
   catalog's license **and CLA** do **not** reach into an app — listing an app in `registry.yaml`

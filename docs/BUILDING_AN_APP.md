@@ -127,7 +127,7 @@ tagline: One short line for the store card
 category: displays                  # displays | donations | community | quran | admin | utilities
 version: 1.0.0
 author: Your Name
-license: MIT                        # your choice
+license: MIT                        # your choice (third-party). Official OpenMasjid apps: AGPL-3.0-only — see docs/APP_LICENSING.md
 icon: icon.svg
 screenshots:
   - screenshots/1.svg
