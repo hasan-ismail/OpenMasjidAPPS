@@ -325,10 +325,15 @@ Exactly one of: `displays`, `donations`, `community`, `quran`, `admin`, `utiliti
   host bind-mounts — the platform's consent gate flags these and refuses/warns.
 
 **Licensing**
-- **This catalog repo** (tooling, registry, examples scaffolding) is **AGPL-3.0** — see `LICENSE`.
-- **Each app** carries **its own license** (the manifest `license` field). Because apps run as
-  separate programs at arm's length (network, env vars), the platform's/catalog's license does
-  **not** reach into an app. App authors choose freely.
+- **This catalog repo** (tooling, registry, examples scaffolding) is **AGPL-3.0** — see `LICENSE` —
+  and contributions to it are governed by a **Contributor License Agreement** (`CLA.md`, enforced by
+  `.github/workflows/cla.yml`): AGPL-3.0 inbound plus a grant letting OpenMasjid-Solutions also offer
+  commercial/dual licenses. The public tree stays AGPL-3.0; contributors keep their copyright. See
+  `CONTRIBUTING.md`.
+- **The CLA covers this repo only.** **Each app** carries **its own license** (the manifest
+  `license` field). Because apps run as separate programs at arm's length (network, env vars), the
+  catalog's license **and CLA** do **not** reach into an app — listing an app in `registry.yaml`
+  does not relicense it. App authors choose freely.
 - The reference apps under `examples/` declare their own license in their manifest.
 - **Do NOT copy app manifests, compose files, icons, or assets from umbrelOS / `umbrel-apps`
   (PolyForm Noncommercial) or CasaOS stores.** Take inspiration, write originals.

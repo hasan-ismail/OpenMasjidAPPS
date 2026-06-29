@@ -16,15 +16,22 @@ privilege (privileged, host namespaces, `cap_add`, Docker-socket or sensitive ho
 `build`/`extends`/`include`, etc.). "Passes the catalog build" is meant to equal "installs on the
 platform" — don't weaken these checks.
 
-## Licensing & sign-off (DCO)
+## Licensing, the CLA & sign-off (DCO)
 
-- This repository is **AGPL-3.0-only** (© 2026 Hasan Ismail). Contributions to **this repo** —
-  tooling, docs, and the `examples/` reference apps — are accepted under **AGPL-3.0-only**. Add an
-  SPDX header to new source files:
+- This repository is **AGPL-3.0-only** (© 2026 OpenMasjid-Solutions). Contributions to **this repo**
+  — tooling, docs, and the `examples/` reference apps — are accepted under **AGPL-3.0-only** and
+  governed by the **Contributor License Agreement** ([`CLA.md`](./CLA.md), the canonical text). Add
+  an SPDX header to new source files:
   - `.js` / `.mjs` / `.ts`: `// SPDX-License-Identifier: AGPL-3.0-only`
   - `.yml` / `.yaml` / `Dockerfile` / `.sh`: `# SPDX-License-Identifier: AGPL-3.0-only`
-- Apps in their **own** repos keep **their own** license (the manifest `license` field) — AGPL does
-  not reach across the arm's-length container boundary.
+- **The CLA covers contributions to *this* repo only.** Apps in their **own** repos — including any
+  app merely **listed** in `registry.yaml` — keep **their own** license (the manifest `license`
+  field). The CLA does **not** reach across the arm's-length container boundary, so listing your app
+  does **not** place it under this CLA.
+- **Signing the CLA:** on your first PR the CLA bot comments with a link to [`CLA.md`](./CLA.md);
+  sign once by replying with the exact sentence *"I have read the CLA Document and I hereby sign the
+  CLA"*. The CLA keeps the public tree AGPL-3.0 while letting OpenMasjid-Solutions also offer
+  commercial/dual licenses; you keep your copyright.
 - Sign off your commits (Developer Certificate of Origin): `git commit -s`. By signing off you
   certify you wrote the change or have the right to submit it under the project license.
 
